@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Lobby";
+}
+
+@model Lobby
+
+<div class="listContainer">
+    <div class="listHeader">
+        <img src="~/img/barra-sopra.png" />
+        <div>LOBBY @Model.Name </div>
+    </div>
+    <div class="listBody listPG">
+        <div class="personaggiLabel">Personaggi</div>
+        @foreach (KeyValuePair<string, Hero> kv in Model.TeamBlue.Members)
+        {
+            <div class="pg @kv.Value.Class blue">
+                <div class="pallocco"></div>
+            </div>
+        }
+
+        @foreach (KeyValuePair<string, Hero> kv in Model.TeamRed.Members)
+        {
+            <div class="pg @kv.Value.Class red">
+                <div class="pallocco"></div>
+            </div>
+        }
+    </div>
+    <div class="listFooter">
+        <img src="~/img/barra-sotto.png" />
+    </div>
+</div>
+
+<div class="buttonContainer">
+    <div class="button" onclick="mostraPopuppino()">
+        <img class="imgBtn" src="~/img/bottone-verde.png" />
+        <div class="testoBtn">CREA PG</div>
+    </div>
+    <div class="button">
+        <img class="imgBtn" src="~/img/bottone-giallo.png" />
+        <div class="testoBtn">Dettagli PG</div>
+    </div>
+</div>
+
+
+<div class="popuppino">
+
+    <form id="myForm" >
+        <input id="heroName" type="text" placeholder="hero name" />
+        <select id="heroClass">
+            <option value="0">Tank</option>
+            <option value="1">Damage</option>
+            <option value="2">Support</option>
+        </select>
+        <select id="heroColor">
+            <option value="0">Red</option>
+            <option value="1">Blue</option>
+        </select>
+        <button onclick="callToCreate()">Crea</button>
+
+    </form>
+
+</div>

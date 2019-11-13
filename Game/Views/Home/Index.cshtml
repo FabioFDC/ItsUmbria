@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div id="div1" class="myDiv">prova</div>
+<div id="div2" class="myDiv">prova</div>
+<div id="div3" class="myDiv">prova</div>
+<div id="div4" class="myDiv">prova</div>
+<div id="div5" class="myDiv">prova</div>
+<div id="div6" class="myDiv">
+    <div>
+        <div>
+            <div>Ciao sono il div dentro dentro dentro dentro dentro</div>
+        </div>
+    </div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+    <div>Ciao sono il div dentro</div>
+</div>
+
+<style>
+    #div1 {
+        background-color: red;
+        color: yellow;
+    }
+    #div6 div {
+        background-color: green;
+    }
+</style>
+
+<script>
+    function test2() {
+        $(".myDiv").css({ "background-color": "black", "color": "white", "height": "30px" }).html("coao");
+        $(".myDiv").html("sta funzionando");
+        $("#div6 div").html("sta funzionando");
+    }
+
+    function chiamata() {
+        $.get("/css/site.css");
+    }
+    
+    function chiamata2() {
+        var obj = {
+            a: 2,
+            b: 4,
+            c: 6
+        }
+        $.post("/home/test", obj).done(
+            function (data) {
+                $("#div1").html(data);
+            }
+        )
+    }
+</script>

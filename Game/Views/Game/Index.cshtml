@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Lobby>
+
+<div class="listContainer">
+    <div class="listHeader">
+        <img src="~/img/barra-sopra.png" />
+        <div>LOBBY</div>
+    </div>
+    <div class="listBody">
+        @foreach (Lobby l in Model)
+        {
+            <div id="@l.Name" class="listElement" onclick="seleziona(this)">Stanza @l.Name</div>
+        }
+    </div>
+    <div class="listFooter">
+        <img src="~/img/barra-sotto.png" />
+    </div>
+</div>
+
+<div class="buttonContainer">
+    <div class="button">
+        <img class="imgBtn" src="~/img/bottone-verde.png" />
+        <div class="testoBtn">CREA</div>
+    </div>
+    <div class="button" onclick="redirect()">
+        <img class="imgBtn" src="~/img/bottone-giallo.png" />
+        <div class="testoBtn">UNISCITI</div>
+    </div>
+</div>
+
+
+@*<div class="splash"></div>*@
